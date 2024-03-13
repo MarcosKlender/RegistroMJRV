@@ -3,6 +3,10 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\ReportController;
+use App\Http\Controllers\MJRVController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,3 +33,7 @@ Route::middleware('auth')->group(function () {
 });
 
 require __DIR__.'/auth.php';
+
+Route::resource('registration', RegistrationController::class);
+Route::resource('report', ReportController::class);
+Route::resource('mjrv', MJRVController::class);
