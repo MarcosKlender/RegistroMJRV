@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('username')->unique();
             $table->string('phone')->nullable();
             $table->string('location')->nullable();
-            $table->integer('role')->nullable(); // CAMBIAR ESTO
+            $table->integer('role')->default(2);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

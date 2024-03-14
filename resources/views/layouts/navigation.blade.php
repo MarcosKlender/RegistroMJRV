@@ -18,12 +18,14 @@
                     <x-nav-link :href="route('registration.index')" :active="request()->routeIs('registration.*')">
                         {{ __('Registro') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('report.index')" :active="request()->routeIs('report.*')">
-                        {{ __('Reportes') }}
-                    </x-nav-link>
-                    <x-nav-link :href="route('mjrv.index')" :active="request()->routeIs('mjrv.*')">
-                        {{ __('MJRV') }}
-                    </x-nav-link>
+                    @if (Auth::user()->role == 1)
+                        <x-nav-link :href="route('report.index')" :active="request()->routeIs('report.*')">
+                            {{ __('Reportes') }}
+                        </x-nav-link>
+                        <x-nav-link :href="route('mjrv.index')" :active="request()->routeIs('mjrv.*')">
+                            {{ __('MJRV') }}
+                        </x-nav-link>
+                    @endif
                 </div>
             </div>
 
@@ -61,9 +63,11 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        <x-dropdown-link :href="route('profile.edit')">
-                            {{ __('Editar Perfil') }}
-                        </x-dropdown-link>
+                        @if (Auth::user()->role == 1)
+                            <x-dropdown-link :href="route('profile.edit')">
+                                {{ __('Editar Perfil') }}
+                            </x-dropdown-link>
+                        @endif
 
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
@@ -104,12 +108,14 @@
             <x-responsive-nav-link :href="route('registration.index')" :active="request()->routeIs('registration.*')">
                 {{ __('Registro') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('report.index')" :active="request()->routeIs('reports.*')">
-                {{ __('Reportes') }}
-            </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('mjrv.index')" :active="request()->routeIs('mjrv.*')">
-                {{ __('MJRV') }}
-            </x-responsive-nav-link>
+            @if (Auth::user()->role == 1)
+                <x-responsive-nav-link :href="route('report.index')" :active="request()->routeIs('reports.*')">
+                    {{ __('Reportes') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('mjrv.index')" :active="request()->routeIs('mjrv.*')">
+                    {{ __('MJRV') }}
+                </x-responsive-nav-link>
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->
@@ -120,9 +126,11 @@
             </div>
 
             <div class="mt-3 space-y-1">
-                <x-responsive-nav-link :href="route('profile.edit')">
-                    {{ __('Editar Perfil') }}
-                </x-responsive-nav-link>
+                @if (Auth::user()->role == 1)
+                    <x-responsive-nav-link :href="route('profile.edit')">
+                        {{ __('Editar Perfil') }}
+                    </x-responsive-nav-link>
+                @endif
 
                 <!-- Authentication -->
                 <form method="POST" action="{{ route('logout') }}">
