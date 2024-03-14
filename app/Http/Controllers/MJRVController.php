@@ -2,62 +2,50 @@
 
 namespace App\Http\Controllers;
 
+use App\Imports\MJRVImport;
 use App\Models\MJRV;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class MJRVController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    public function import()
+    {
+        Excel::import(new MJRVImport, request()->file('file'));
+
+        return redirect ('/mjrv')->with('success', 'MJRV importados correctamente.');
+    }
+
     public function index()
     {
         return view('mjrv.index');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(MJRV $mJRV)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(MJRV $mJRV)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, MJRV $mJRV)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(MJRV $mJRV)
     {
         //

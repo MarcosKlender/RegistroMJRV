@@ -36,4 +36,6 @@ require __DIR__.'/auth.php';
 
 Route::resource('registration', RegistrationController::class);
 Route::resource('report', ReportController::class);
+
+Route::post('/mjrv/import', [MJRVController::class, 'import'])->name('mjrv.import');
 Route::resource('mjrv', MJRVController::class);
