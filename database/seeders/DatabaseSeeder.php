@@ -9,15 +9,14 @@ use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
     public function run(): void
     {
         DB::table('users')->insert([
             'name' => 'CARRASCO GONZAGA MARCOS KLENDER',
             'email' => 'marcosklender@gmail.com',
             'username' => '2300679244',
+            'phone' => '0980199488',
+            'location' => 'CPE SANTO DOMINGO',
             'role' => 1,
             'password' => Hash::make('2300679244'),
         ]);

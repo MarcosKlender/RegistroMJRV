@@ -25,6 +25,9 @@
                         <x-nav-link :href="route('mjrv.index')" :active="request()->routeIs('mjrv.*')">
                             {{ __('MJRV') }}
                         </x-nav-link>
+                        <x-nav-link :href="route('user.index')" :active="request()->routeIs('user.*')">
+                            {{ __('Usuarios') }}
+                        </x-nav-link>
                     @endif
                 </div>
             </div>
@@ -114,6 +117,9 @@
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('mjrv.index')" :active="request()->routeIs('mjrv.*')">
                     {{ __('MJRV') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('user.index')" :active="request()->routeIs('user.*')">
+                    {{ __('Usuarios') }}
                 </x-responsive-nav-link>
             @endif
         </div>

@@ -18,7 +18,10 @@ class MJRVController extends Controller
 
     public function index()
     {
-        return view('mjrv.index');
+        $members = MJRV::take(5)->get();
+        $membersCount = MJRV::count();
+
+        return view('mjrv.index', ['members' => $members, 'membersCount' => $membersCount]);
     }
 
     public function create()

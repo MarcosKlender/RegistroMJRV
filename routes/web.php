@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegistrationController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\MJRVController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,3 +40,6 @@ Route::resource('report', ReportController::class);
 
 Route::post('/mjrv/import', [MJRVController::class, 'import'])->name('mjrv.import');
 Route::resource('mjrv', MJRVController::class);
+
+Route::post('/user/import', [UserController::class, 'import'])->name('user.import');
+Route::resource('user', UserController::class);
