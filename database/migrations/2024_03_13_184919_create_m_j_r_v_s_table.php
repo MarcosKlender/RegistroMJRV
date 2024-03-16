@@ -21,15 +21,15 @@ return new class extends Migration
             $table->string('zona');
             $table->string('recinto');
             $table->string('institucion');
-            $table->string('junta');
-            $table->string('sexo');
-            $table->string('cedula')->unique();
+            $table->string('junta', 2);
+            $table->string('sexo', 1);
+            $table->string('cedula', 10)->unique();
             $table->string('nombre');
             $table->string('correo')->unique();
-            $table->string('celular')->nullable();
-            $table->string('coordinador_cedula')->nullable();
+            $table->string('celular', 10)->nullable();
+            $table->string('coordinador_cedula', 10)->nullable();
             $table->string('coordinador_nombre')->nullable();
-            $table->string('coordinador_celular')->nullable();
+            $table->string('coordinador_celular', 10)->nullable();
             $table->timestamps();
         });
     }

@@ -12,6 +12,7 @@ class MJRV extends Model
     use HasFactory;
 
     protected $fillable = [
+        'asistencia',
         'provincia',
         'canton',
         'parroquia',
@@ -24,5 +25,8 @@ class MJRV extends Model
         'nombre',
         'correo',
         'celular',
+        'coordinador_cedula',
+        'coordinador_nombre',
+        'coordinador_celular',
     ];
 }

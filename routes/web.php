@@ -35,7 +35,9 @@ Route::middleware('auth')->group(function () {
 
 require __DIR__.'/auth.php';
 
+Route::post('/registration/search', [RegistrationController::class, 'search'])->name('registration.search');
 Route::resource('registration', RegistrationController::class);
+
 Route::resource('report', ReportController::class);
 
 Route::post('/mjrv/import', [MJRVController::class, 'import'])->name('mjrv.import');
