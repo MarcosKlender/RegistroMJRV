@@ -13,7 +13,7 @@ class DatabaseSeeder extends Seeder
     {
         DB::table('users')->insert([
             'name' => 'CARRASCO GONZAGA MARCOS KLENDER',
-            'email' => 'marcosklender@gmail.com',
+            'email' => 'marcoscarrasco@cne.gob.ec',
             'username' => '2300679244',
             'phone' => '0980199488',
             'location' => 'CPE SANTO DOMINGO',

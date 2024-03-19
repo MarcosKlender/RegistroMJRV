@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Imports\UserImport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
@@ -39,7 +40,29 @@ class UserController extends Controller
 
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'username' => 'required',
+            'phone' => 'required',
+            'location' => 'required',
+            'role' => 'required',
+            'password' => ''
+        ]);
+
+        $user = User::create([
+            'name' => strtoupper($request->name),
+            'email' => $request->email,
+            'username' => $request->username,
+            'phone' => $request->phone,
+            'location' => strtoupper($request->location),
+            'role' => $request->role,
+            'password' => Hash::make($request->username),
+        ]);
+
+        $user->save();
+
+        return redirect('/user')->with('success', 'Usuario creado correctamente.');
     }
 
     public function show(string $id)

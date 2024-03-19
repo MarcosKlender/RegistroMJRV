@@ -10,7 +10,7 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
 
-                    @include('registration._messages')
+                    @include('components._messages')
 
                     <form class="max-w-md mx-auto" action="{{ route('registration.search') }}" method="POST">
                         @csrf
