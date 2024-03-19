@@ -1,4 +1,4 @@
-<div id="createModal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
+<div id="editModal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true"
     class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full">
     <div class="relative p-4 w-full max-w-2xl max-h-full">
         <!-- Modal content -->
@@ -6,12 +6,13 @@
             <!-- Modal header -->
             <div class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600">
                 <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                    Crear Usuario
+                    Editar Usuario
                 </h3>
             </div>
             <!-- Modal body -->
-            <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('user.update', $user) }}" method="POST" enctype="multipart/form-data">
                 <div class="p-4 md:p-5 space-y-4">
+                    @method('PUT')
                     @csrf
 
                     <div class="grid gap-6 mb-6 md:grid-cols-2">
@@ -26,6 +27,7 @@
                             </select>
                         </div>
                         <div>
+                            <input type="hidden" id="id" name="id">
                             <label for="username"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Cédula</label>
                             <input type="text" id="username" name="username"
@@ -68,10 +70,27 @@
                     class="flex items-center justify-center p-4 md:p-5 border-t border-gray-200 rounded-b dark:border-gray-600">
                     <button type="submit"
                         class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-auto dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800">Guardar</button>
-                    <button data-modal-hide="createModal" type="button"
+                    <button data-modal-hide="editModal" type="button"
                         class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-auto dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">Cancelar</button>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
+<script>
+    @push('scripts')
+        $('[data-modal-target="editModal"]').click(function() {
+            var modal = $('#editModal');
+            var data = $(this).data();
+
+            modal.find('input[name="id"]').val(data.id);
+            modal.find('input[name="name"]').val(data.name);
+            modal.find('input[name="email"]').val(data.email);
+            modal.find('input[name="username"]').val(data.username);
+            modal.find('input[name="phone"]').val(data.phone);
+            modal.find('input[name="location"]').val(data.location);
+            modal.find('select[name="role"]').val(data.role);
+        });
+    @endpush
+</script>
