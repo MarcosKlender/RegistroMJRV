@@ -17,7 +17,7 @@ class RegistrationController extends Controller
         try {
             $mjrv = MJRV::where('cedula', $idNumber)->firstOrFail();
         } catch (ModelNotFoundException $e) {
-            return redirect()->back()->with('error', 'No existen resultados. Prueba con otro número de cédula.');
+            return redirect('/registration')->with('error', 'No existen resultados. Prueba con otro número de cédula.');
         }
 
         return view('registration.search', ['mjrv' => $mjrv]);

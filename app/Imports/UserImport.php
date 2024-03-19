@@ -11,8 +11,6 @@ class UserImport implements ToModel, WithHeadingRow
 {
     public function __construct()
     {
-        User::truncate();
-
         User::insert([
             'name' => 'CARRASCO GONZAGA MARCOS KLENDER',
             'email' => 'marcosklender@gmail.com',

@@ -5,15 +5,23 @@ namespace App\Http\Controllers;
 use App\Imports\MJRVImport;
 use App\Models\MJRV;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 
 class MJRVController extends Controller
 {
     public function import()
     {
-        Excel::import(new MJRVImport, request()->file('file'));
+        try {
+            DB::transaction(function () {
+                MJRV::truncate();
+                Excel::import(new MJRVImport, request()->file('file'));
+            });
 
-        return redirect ('/mjrv')->with('success', 'MJRV importados correctamente.');
+            return redirect('/mjrv')->with('success', 'Usuarios importados correctamente.');
+        } catch (\Throwable $e) {
+            return redirect('/mjrv')->with('error', 'Error al importar. Asegúrate de usar un archivo válido.');
+        }
     }
 
     public function index()

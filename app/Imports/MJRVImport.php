@@ -8,11 +8,6 @@ use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
 class MJRVImport implements ToModel, WithHeadingRow
 {
-    public function __construct()
-    {
-        MJRV::truncate();
-    }
-
     public function model(array $row)
     {
         return new MJRV([

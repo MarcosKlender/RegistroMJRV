@@ -34,7 +34,7 @@
                     @empty($mjrv)
                         <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg text-center">
                             <div class="pt-6 text-gray-900 dark:text-gray-100">
-                                {{ __('Algo salió mal. Si estás leyendo esto, repórtalo al Administrador."') }}
+                                {{ __('Algo salió mal. Si estás leyendo esto, repórtalo al Administrador.') }}
                             </div>
                         </div>
                     @else
