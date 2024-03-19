@@ -10,6 +10,19 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class MJRVController extends Controller
 {
+    public function search(Request $request)
+    {
+        $mjrvSearch = $request->string('mjrvSearch');
+
+        try {
+            $mjrv = MJRV::where('cedula', $mjrvSearch)->firstOrFail();
+        } catch (\Throwable $e) {
+            return redirect('/mjrv')->with('error', 'No existen resultados. Prueba con otro número de cédula.');
+        }
+
+        return view('mjrv.search', ['mjrv' => $mjrv]);
+    }
+
     public function import()
     {
         try {
@@ -18,7 +31,7 @@ class MJRVController extends Controller
                 Excel::import(new MJRVImport, request()->file('file'));
             });
 
-            return redirect('/mjrv')->with('success', 'Usuarios importados correctamente.');
+            return redirect('/mjrv')->with('success', 'MJRV importados correctamente.');
         } catch (\Throwable $e) {
             return redirect('/mjrv')->with('error', 'Error al importar. Asegúrate de usar un archivo válido.');
         }
@@ -26,7 +39,7 @@ class MJRVController extends Controller
 
     public function index()
     {
-        $members = MJRV::take(5)->get();
+        $members = MJRV::inRandomOrder()->take(5)->get();
         $membersCount = MJRV::count();
 
         return view('mjrv.index', ['members' => $members, 'membersCount' => $membersCount]);

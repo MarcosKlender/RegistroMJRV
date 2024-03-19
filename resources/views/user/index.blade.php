@@ -17,9 +17,12 @@
 
                     <div class="flex flex-col md:flex-row md:justify-between md:items-center mx-auto">
                         <div class="basis-1/3">
-                            <form class="max-w-md pb-5 md:pb-0">
-                                <label for="default-search"
-                                    class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">Search</label>
+                            <form class="max-w-md pb-5 md:pb-0" action="{{ route('user.search') }}" method="POST">
+                                @csrf
+
+                                <label for="userSearch"
+                                    class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-white">User
+                                    Search</label>
                                 <div class="relative">
                                     <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
                                         <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
@@ -28,7 +31,7 @@
                                                 stroke-width="2" d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
                                         </svg>
                                     </div>
-                                    <input type="search" id="default-search"
+                                    <input type="search" id="userSearch" name="userSearch"
                                         class="block w-full p-4 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                         placeholder="Número de Cédula" minlength="10" maxlength="10" required />
                                     <button type="submit"
@@ -36,7 +39,6 @@
                                 </div>
                             </form>
                         </div>
-
 
                         <div class="flex flex-row justify-center">
                             <!-- Create modal toggle -->

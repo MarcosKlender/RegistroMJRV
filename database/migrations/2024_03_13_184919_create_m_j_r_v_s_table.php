@@ -19,13 +19,14 @@ return new class extends Migration
             $table->string('canton');
             $table->string('parroquia');
             $table->string('zona')->nullable();
-            $table->string('recinto');
-            $table->string('institucion');
+            $table->string('recinto')->nullable();
+            $table->string('institucion')->nullable();
             $table->string('junta', 3);
             $table->string('sexo', 1);
             $table->string('cedula', 10)->unique();
             $table->string('nombre');
-            $table->string('correo')->unique()->nullable();
+            $table->string('correo')->nullable();
+            $table->string('correo2')->nullable();
             $table->string('celular', 15)->nullable();
             $table->string('coordinador_cedula', 10)->nullable();
             $table->string('coordinador_nombre')->nullable();

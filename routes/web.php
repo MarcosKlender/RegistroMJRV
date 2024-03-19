@@ -40,8 +40,10 @@ Route::resource('registration', RegistrationController::class);
 
 Route::resource('report', ReportController::class);
 
+Route::post('/mjrv/search', [MJRVController::class, 'search'])->name('mjrv.search');
 Route::post('/mjrv/import', [MJRVController::class, 'import'])->name('mjrv.import');
 Route::resource('mjrv', MJRVController::class);
 
+Route::post('/user/search', [UserController::class, 'search'])->name('user.search');
 Route::post('/user/import', [UserController::class, 'import'])->name('user.import');
 Route::resource('user', UserController::class);

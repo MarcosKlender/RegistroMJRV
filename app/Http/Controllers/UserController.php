@@ -12,6 +12,19 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class UserController extends Controller
 {
+    public function search(Request $request)
+    {
+        $userSearch = $request->string('userSearch');
+
+        try {
+            $user = User::where('username', $userSearch)->firstOrFail();
+        } catch (\Throwable $e) {
+            return redirect('/user')->with('error', 'No existen resultados. Prueba con otro número de cédula.');
+        }
+
+        return view('user.search', ['user' => $user]);
+    }
+
     public function import()
     {
         try {
