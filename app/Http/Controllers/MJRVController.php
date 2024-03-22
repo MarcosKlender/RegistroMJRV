@@ -7,6 +7,7 @@ use App\Models\MJRV;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Validator;
 
 class MJRVController extends Controller
 {
@@ -31,7 +32,7 @@ class MJRVController extends Controller
                 Excel::import(new MJRVImport, request()->file('file'));
             });
 
-            return redirect('/mjrv')->with('success', 'MJRV importados correctamente.');
+            return redirect('/mjrv')->with('success', '¡MJRV importados!');
         } catch (\Throwable $e) {
             return redirect('/mjrv')->with('error', 'Error al importar. Asegúrate de usar un archivo válido.');
         }
@@ -65,9 +66,29 @@ class MJRVController extends Controller
         //
     }
 
-    public function update(Request $request, MJRV $mJRV)
+    public function update(Request $request)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'junta' => 'required|numeric|digits_between:1,3',
+            'sexo' => 'required|size:1',
+        ]);
+
+        if ($validator->fails()) {
+            $errors = $validator->errors();
+
+            return redirect('/registration')->withErrors($errors);
+        } else {
+            $mjrv = MJRV::find($request->id);
+
+            $mjrv->update([
+                'junta' => $request->junta,
+                'sexo' => $request->sexo,
+            ]);
+
+            $mjrv->save();
+
+            return redirect('/registration')->with('success', '¡MJRV actualizado!');
+        }
     }
 
     public function destroy(MJRV $mJRV)

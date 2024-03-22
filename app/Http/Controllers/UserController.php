@@ -33,7 +33,7 @@ class UserController extends Controller
                 Excel::import(new UserImport, request()->file('file'));
             });
 
-            return redirect('/user')->with('success', 'Usuarios importados correctamente.');
+            return redirect('/user')->with('success', '¡Usuarios importados!');
         } catch (\Throwable $e) {
             return redirect('/user')->with('error', 'Error al importar. Asegúrate de usar un archivo válido.');
         }
@@ -80,7 +80,7 @@ class UserController extends Controller
 
             $user->save();
 
-            return redirect('/user')->with('success', 'Usuario creado correctamente.');
+            return redirect('/user')->with('success', '¡Usuario creado!');
         }
     }
 
@@ -123,7 +123,7 @@ class UserController extends Controller
 
             $user->save();
 
-            return redirect('/user')->with('success', 'Usuario editado correctamente.');
+            return redirect('/user')->with('success', '¡Usuario editado!');
         }
     }
 

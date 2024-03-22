@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\MJRV;
-use App\Models\Registration;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Support\Facades\Auth;
@@ -25,7 +24,7 @@ class RegistrationController extends Controller
 
     public function index()
     {
-        $members = MJRV::where('coordinador_cedula', Auth::user()->username)->get();
+        $members = MJRV::where('coordinador_cedula', Auth::user()->username)->orderBy("id", "DESC")->get();
 
         return view('registration.index', ['members' => $members]);
     }
@@ -50,25 +49,30 @@ class RegistrationController extends Controller
         //
     }
 
-    public function update(Request $request, MJRV $mjrv)
+    public function update(Request $request)
     {
-        $request->validate([
-            'coordinador_cedula' => 'required',
-            'coordinador_nombre' => 'required',
-            'coordinador_celular' => 'required',
-            'asistencia' => 'required',
-        ]);
-
         $mjrv = MJRV::find($request->id);
 
-        $mjrv->update([
+        $updateData = [
             'coordinador_cedula' => $request->coordinador_cedula,
             'coordinador_nombre' => $request->coordinador_nombre,
             'coordinador_celular' => $request->coordinador_celular,
             'asistencia' => $request->asistencia,
-        ]);
+        ];
 
-        return redirect()->route('registration.index')->with('success', 'MJRV registrado exitosamente');
+        if ($request->has('unlink')) {
+            $updateData['coordinador_cedula'] = null;
+            $updateData['coordinador_nombre'] = null;
+            $updateData['coordinador_celular'] = null;
+        }
+
+        $mjrv->update($updateData);
+
+        if ($request->has('unlink')) {
+            return redirect()->route('registration.index')->with('success', '¡MJRV desvinculado!');
+        } else {
+            return redirect()->route('registration.index')->with('success', '¡MJRV registrado!');
+        }
     }
 
     public function destroy(MJRV $mjrv)

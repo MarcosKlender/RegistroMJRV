@@ -3,7 +3,7 @@
         class="flex items-center p-4 mb-4 text-red-800 border-t-4 border-red-300 bg-red-50 dark:text-red-400 dark:bg-gray-800 dark:border-red-800"
         role="alert">
         <div>
-            <span class="font-medium">Error al crear usuario.
+            <span class="font-medium">Ha surgido un error.
                 Por favor, asegúrate de corregir los siguientes puntos:</span>
             <ul class="mt-1.5 list-disc list-inside">
                 @foreach ($errors->all() as $error)

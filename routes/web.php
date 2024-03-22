@@ -33,7 +33,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
 
 Route::post('/registration/search', [RegistrationController::class, 'search'])->name('registration.search');
 Route::resource('registration', RegistrationController::class);
