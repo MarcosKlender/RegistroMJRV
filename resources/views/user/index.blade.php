@@ -150,7 +150,7 @@
                             </table>
                         </div>
                         <div class="text-center font-bold">
-                            {{ __('TOTAL DE USUARIOS REGISTRADOS:') }} {{ $usersCount }}
+                            {{ __('TOTAL DE USUARIOS:') }} {{ $usersCount }}
                         </div>
                     @endif
 

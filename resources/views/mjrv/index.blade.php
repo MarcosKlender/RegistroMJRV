@@ -108,7 +108,7 @@
                             </table>
                         </div>
                         <div class="text-center font-bold">
-                            {{ __('TOTAL DE MJRV REGISTRADOS:') }} {{ $membersCount }}
+                            {{ __('TOTAL DE MJRV:') }} {{ $membersCount }}
                         </div>
                     @endif
 

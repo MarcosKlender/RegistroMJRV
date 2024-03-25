@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\MJRVExport;
 use App\Imports\MJRVImport;
 use App\Models\MJRV;
 use Illuminate\Http\Request;
@@ -36,6 +37,12 @@ class MJRVController extends Controller
         } catch (\Throwable $e) {
             return redirect('/mjrv')->with('error', 'Error al importar. Asegúrate de usar un archivo válido.');
         }
+    }
+
+    public function export()
+    {
+        $fileName = 'MJRV_' . now()->format('d-m-Y_H:i') . '.xlsx';
+        return Excel::download(new MJRVExport, $fileName);
     }
 
     public function index()

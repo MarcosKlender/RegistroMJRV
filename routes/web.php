@@ -39,6 +39,7 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/mjrv/search', [MJRVController::class, 'search'])->name('mjrv.search');
     Route::post('/mjrv/import', [MJRVController::class, 'import'])->name('mjrv.import');
+    Route::get('/mjrv/export', [MJRVController::class, 'export'])->name('mjrv.export');
     Route::resource('mjrv', MJRVController::class);
 
     Route::post('/user/search', [UserController::class, 'search'])->name('user.search');
