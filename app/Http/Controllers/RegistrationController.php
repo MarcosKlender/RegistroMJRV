@@ -24,9 +24,13 @@ class RegistrationController extends Controller
 
     public function index()
     {
-        $members = MJRV::where('coordinador_cedula', Auth::user()->username)->orderBy("id", "DESC")->get();
+        if (Auth::user()->role == 3) {
+            return redirect('/report');
+        } else {
+            $members = MJRV::where('coordinador_cedula', Auth::user()->username)->orderBy("id", "DESC")->get();
 
-        return view('registration.index', ['members' => $members]);
+            return view('registration.index', ['members' => $members]);
+        }
     }
 
     public function create()

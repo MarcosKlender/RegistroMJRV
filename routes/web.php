@@ -31,19 +31,19 @@ Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::post('/registration/search', [RegistrationController::class, 'search'])->name('registration.search');
+    Route::resource('registration', RegistrationController::class);
+
+    Route::resource('report', ReportController::class);
+
+    Route::post('/mjrv/search', [MJRVController::class, 'search'])->name('mjrv.search');
+    Route::post('/mjrv/import', [MJRVController::class, 'import'])->name('mjrv.import');
+    Route::resource('mjrv', MJRVController::class);
+
+    Route::post('/user/search', [UserController::class, 'search'])->name('user.search');
+    Route::post('/user/import', [UserController::class, 'import'])->name('user.import');
+    Route::resource('user', UserController::class);
 });
 
 require __DIR__ . '/auth.php';
-
-Route::post('/registration/search', [RegistrationController::class, 'search'])->name('registration.search');
-Route::resource('registration', RegistrationController::class);
-
-Route::resource('report', ReportController::class);
-
-Route::post('/mjrv/search', [MJRVController::class, 'search'])->name('mjrv.search');
-Route::post('/mjrv/import', [MJRVController::class, 'import'])->name('mjrv.import');
-Route::resource('mjrv', MJRVController::class);
-
-Route::post('/user/search', [UserController::class, 'search'])->name('user.search');
-Route::post('/user/import', [UserController::class, 'import'])->name('user.import');
-Route::resource('user', UserController::class);

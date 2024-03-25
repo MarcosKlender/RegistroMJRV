@@ -23,6 +23,7 @@
                                 <option value="" selected disabled>Elija una opción</option>
                                 <option value="1">Administrador</option>
                                 <option value="2">Coordinador</option>
+                                <option value="3">Supervisor</option>
                             </select>
                         </div>
                         <div>

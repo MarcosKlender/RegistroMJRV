@@ -82,7 +82,13 @@
                                         {{ $user->phone }}
                                     </td>
                                     <td class="px-6 py-4 dark:text-white">
-                                        {{ $user->role == 1 ? 'Administrador' : 'Coordinador' }}
+                                        @if ($user->role == 1)
+                                            {{ 'Administrador' }}
+                                        @elseif ($user->role == 2)
+                                            {{ 'Coordinador' }}
+                                        @elseif ($user->role == 3)
+                                            {{ 'Supervisor' }}
+                                        @endif
                                     </td>
                                     <td class="flex flex-row items-center px-6 py-4 dark:text-white">
                                         <!-- Edit modal toggle -->

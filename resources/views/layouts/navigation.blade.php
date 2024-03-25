@@ -13,10 +13,10 @@
                     {{-- <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Escritorio') }}
                     </x-nav-link> --}}
-                    <x-nav-link :href="route('registration.index')" :active="request()->routeIs('registration.*')">
-                        {{ __('Registro') }}
-                    </x-nav-link>
                     @if (Auth::user()->role == 1)
+                        <x-nav-link :href="route('registration.index')" :active="request()->routeIs('registration.*')">
+                            {{ __('Registro') }}
+                        </x-nav-link>
                         <x-nav-link :href="route('report.index')" :active="request()->routeIs('report.*')">
                             {{ __('Reportes') }}
                         </x-nav-link>
@@ -25,6 +25,14 @@
                         </x-nav-link>
                         <x-nav-link :href="route('user.index')" :active="request()->routeIs('user.*')">
                             {{ __('Usuarios') }}
+                        </x-nav-link>
+                    @elseif (Auth::user()->role == 2)
+                        <x-nav-link :href="route('registration.index')" :active="request()->routeIs('registration.*')">
+                            {{ __('Registro') }}
+                        </x-nav-link>
+                    @elseif (Auth::user()->role == 3)
+                        <x-nav-link :href="route('report.index')" :active="request()->routeIs('report.*')">
+                            {{ __('Reportes') }}
                         </x-nav-link>
                     @endif
                 </div>
@@ -106,11 +114,11 @@
             {{-- <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Escritorio') }}
             </x-responsive-nav-link> --}}
-            <x-responsive-nav-link :href="route('registration.index')" :active="request()->routeIs('registration.*')">
-                {{ __('Registro') }}
-            </x-responsive-nav-link>
             @if (Auth::user()->role == 1)
-                <x-responsive-nav-link :href="route('report.index')" :active="request()->routeIs('reports.*')">
+                <x-responsive-nav-link :href="route('registration.index')" :active="request()->routeIs('registration.*')">
+                    {{ __('Registro') }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="route('report.index')" :active="request()->routeIs('report.*')">
                     {{ __('Reportes') }}
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('mjrv.index')" :active="request()->routeIs('mjrv.*')">
@@ -118,6 +126,14 @@
                 </x-responsive-nav-link>
                 <x-responsive-nav-link :href="route('user.index')" :active="request()->routeIs('user.*')">
                     {{ __('Usuarios') }}
+                </x-responsive-nav-link>
+            @elseif (Auth::user()->role == 2)
+                <x-responsive-nav-link :href="route('registration.index')" :active="request()->routeIs('registration.*')">
+                    {{ __('Registro') }}
+                </x-responsive-nav-link>
+            @elseif (Auth::user()->role == 3)
+                <x-responsive-nav-link :href="route('report.index')" :active="request()->routeIs('report.*')">
+                    {{ __('Reportes') }}
                 </x-responsive-nav-link>
             @endif
         </div>
