@@ -12,8 +12,6 @@
             <th bgcolor="#00FF00">SEXO</th>
             <th bgcolor="#00FF00" width="80px">CÉDULA</th>
             <th bgcolor="#00FF00">NOMBRES</th>
-            <th bgcolor="#00FF00">CORREO</th>
-            <th bgcolor="#00FF00">CORREO SECUNDARIO</th>
             <th bgcolor="#00FF00">CELULAR</th>
             <th bgcolor="#00FFFF" width="80px">CÉDULA COORDINADOR</th>
             <th bgcolor="#00FFFF">NOMBRES COORDINADOR</th>
@@ -34,8 +32,6 @@
                 <td>{{ $member->sexo }}</td>
                 <td>{{ $member->cedula }}</td>
                 <td>{{ $member->nombre }}</td>
-                <td>{{ $member->correo }}</td>
-                <td>{{ $member->correo2 }}</td>
                 <td>{{ $member->celular }}</td>
                 <td>{{ $member->coordinador_cedula }}</td>
                 <td>{{ $member->coordinador_nombre }}</td>

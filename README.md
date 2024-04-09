@@ -16,8 +16,6 @@ Please make sure your Excel files have the following columns:
 - sexo
 - cedula
 - nombre
-- correo
-- correo2
 - celular
 
 #### Users

@@ -23,8 +23,6 @@ class MJRV extends Model
         'sexo',
         'cedula',
         'nombre',
-        'correo',
-        'correo2',
         'celular',
         'coordinador_cedula',
         'coordinador_nombre',

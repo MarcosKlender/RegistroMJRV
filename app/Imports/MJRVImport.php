@@ -21,8 +21,6 @@ class MJRVImport implements ToModel, WithHeadingRow
             'sexo' => $row['sexo'],
             'cedula' => $row['cedula'],
             'nombre' => $row['nombre'],
-            'correo' => $row['correo'],
-            'correo2' => $row['correo2'],
             'celular' => $row['celular'],
         ]);
     }

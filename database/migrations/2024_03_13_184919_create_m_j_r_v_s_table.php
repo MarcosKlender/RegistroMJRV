@@ -25,8 +25,6 @@ return new class extends Migration
             $table->string('sexo', 1);
             $table->string('cedula', 10)->unique();
             $table->string('nombre');
-            $table->string('correo')->nullable();
-            $table->string('correo2')->nullable();
             $table->string('celular', 15)->nullable();
             $table->string('coordinador_cedula', 10)->nullable();
             $table->string('coordinador_nombre')->nullable();

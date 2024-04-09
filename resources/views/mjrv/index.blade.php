@@ -75,9 +75,6 @@
                                         <th scope="col" class="px-6 py-3">
                                             Nombres
                                         </th>
-                                        <th scope="col" class="px-6 py-3">
-                                            Celular
-                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -98,9 +95,6 @@
                                             </td>
                                             <td class="px-6 py-4 dark:text-white">
                                                 {{ $member->nombre }}
-                                            </td>
-                                            <td class="px-6 py-4 dark:text-white">
-                                                {{ $member->celular }}
                                             </td>
                                         </tr>
                                     @endforeach
