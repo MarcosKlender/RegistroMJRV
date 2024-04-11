@@ -71,9 +71,6 @@
                                             Nombres
                                         </th>
                                         <th scope="col" class="px-6 py-3">
-                                            Celular
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
                                             Asistencia
                                         </th>
                                     </tr>
@@ -95,9 +92,6 @@
                                         </td>
                                         <td class="px-6 py-4 dark:text-white">
                                             {{ $mjrv->nombre }}
-                                        </td>
-                                        <td class="px-6 py-4 dark:text-white">
-                                            {{ $mjrv->celular }}
                                         </td>
                                         <td class="px-6 py-4 dark:text-white">
                                             @if ($mjrv->asistencia == false)

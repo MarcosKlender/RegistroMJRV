@@ -15,6 +15,7 @@ return new class extends Migration
         Schema::create('m_j_r_v_s', function (Blueprint $table) {
             $table->id();
             $table->boolean('asistencia')->default(false);
+            $table->string('editado', 2)->default('NO');
             $table->string('provincia');
             $table->string('canton');
             $table->string('parroquia');

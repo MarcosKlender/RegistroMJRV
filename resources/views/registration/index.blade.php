@@ -78,9 +78,6 @@
                                             Nombres
                                         </th>
                                         <th scope="col" class="px-6 py-3">
-                                            Celular
-                                        </th>
-                                        <th scope="col" class="px-6 py-3">
                                             Acciones
                                         </th>
                                     </tr>
@@ -104,9 +101,6 @@
                                             </td>
                                             <td class="px-6 py-4 dark:text-white">
                                                 {{ $member->nombre }}
-                                            </td>
-                                            <td class="px-6 py-4 dark:text-white">
-                                                {{ $member->celular }}
                                             </td>
                                             <td class="flex flex-row items-center px-6 py-4 dark:text-white">
                                                 <!-- Edit modal toggle -->
@@ -134,6 +128,7 @@
                                                     <input type="hidden" name="coordinador_nombre" value="x">
                                                     <input type="hidden" name="coordinador_celular" value="x">
                                                     <input type="hidden" name="asistencia" value="false">
+                                                    <input type="hidden" name="editado" value="NO">
                                                     <button type="submit"
                                                         class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
                                                         onclick="return confirm('¿Está seguro de desvincular este MJRV?')">

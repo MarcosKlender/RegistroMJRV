@@ -76,6 +76,7 @@ class MJRVController extends Controller
     public function update(Request $request)
     {
         $validator = Validator::make($request->all(), [
+            'editado' => 'required|size:2',
             'junta' => 'required|numeric|digits_between:1,3',
             'sexo' => 'required|size:1',
         ]);
@@ -88,6 +89,7 @@ class MJRVController extends Controller
             $mjrv = MJRV::find($request->id);
 
             $mjrv->update([
+                'editado' => $request->editado,
                 'junta' => $request->junta,
                 'sexo' => $request->sexo,
             ]);

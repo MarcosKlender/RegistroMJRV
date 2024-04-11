@@ -18,6 +18,7 @@
                     <div class="grid gap-6 mb-6 md:grid-cols-2">
                         <div>
                             <input type="hidden" id="id" name="id">
+                            <input type="hidden" id="editado" name="editado" value="SI">
                             <label for="junta"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Número de
                                 Junta</label>

@@ -62,6 +62,7 @@ class RegistrationController extends Controller
             'coordinador_nombre' => $request->coordinador_nombre,
             'coordinador_celular' => $request->coordinador_celular,
             'asistencia' => $request->asistencia,
+            'editado' => $request->editado,
         ];
 
         if ($request->has('unlink')) {

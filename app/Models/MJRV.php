@@ -13,6 +13,7 @@ class MJRV extends Model
 
     protected $fillable = [
         'asistencia',
+        'editado',
         'provincia',
         'canton',
         'parroquia',

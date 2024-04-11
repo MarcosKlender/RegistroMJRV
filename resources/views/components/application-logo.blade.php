@@ -1,1 +1,1 @@
-<img src="{{ asset('images/LogoCNE.png') }}" alt="Logo CNE">
+<img src="{{ asset('images/LogoCNE.webp') }}" alt="Logo CNE">
