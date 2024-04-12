@@ -124,11 +124,10 @@
 
                                                     <input type="hidden" name="unlink" value="true">
                                                     <input type="hidden" name="id" value="{{ $member->id }}">
-                                                    <input type="hidden" name="coordinador_cedula" value="x">
-                                                    <input type="hidden" name="coordinador_nombre" value="x">
-                                                    <input type="hidden" name="coordinador_celular" value="x">
+                                                    <input type="hidden" name="coordinador_cedula" value="">
+                                                    <input type="hidden" name="coordinador_nombre" value="">
+                                                    <input type="hidden" name="coordinador_celular" value="">
                                                     <input type="hidden" name="asistencia" value="false">
-                                                    <input type="hidden" name="editado" value="NO">
                                                     <button type="submit"
                                                         class="text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-800"
                                                         onclick="return confirm('¿Está seguro de desvincular este MJRV?')">

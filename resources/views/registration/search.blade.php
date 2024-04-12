@@ -95,41 +95,17 @@
                                         </td>
                                         <td class="px-6 py-4 dark:text-white">
                                             @if ($mjrv->asistencia == false)
-                                                <form action="{{ route('registration.update', $mjrv) }}" method="POST">
-                                                    @csrf
-                                                    @method('PUT')
-
-                                                    <input type="hidden" name="id" value="{{ $mjrv->id }}">
-                                                    <input type="hidden" name="coordinador_cedula"
-                                                        value="{{ Auth::user()->username }}">
-                                                    <input type="hidden" name="coordinador_nombre"
-                                                        value="{{ Auth::user()->name }}">
-                                                    <input type="hidden" name="coordinador_celular"
-                                                        value="{{ Auth::user()->phone }}">
-                                                    <input type="hidden" name="asistencia" value="true">
-                                                    <button type="submit"
-                                                        class="focus:outline-none text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-900"
-                                                        onclick="return confirm('¿Está seguro de registrar este MJRV?')">Registrar</button>
-
-                                                </form>
+                                                <!-- Phone modal toggle -->
+                                                <button data-modal-target="phoneModal" data-modal-toggle="phoneModal"
+                                                    data-id="{{ $mjrv->id }}"
+                                                    class="block text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 text-center dark:bg-green-600 dark:hover:bg-green-700 dark:focus:ring-green-800"
+                                                    type="button">
+                                                    Registrar
+                                                </button>
                                             @elseif ($mjrv->asistencia == true)
-                                                <form action="{{ route('registration.update', $mjrv) }}" method="POST">
-                                                    @csrf
-                                                    @method('PUT')
-
-                                                    <input type="hidden" name="id" value="{{ $mjrv->id }}">
-                                                    <input type="hidden" name="coordinador_cedula"
-                                                        value="{{ Auth::user()->username }}">
-                                                    <input type="hidden" name="coordinador_nombre"
-                                                        value="{{ Auth::user()->name }}">
-                                                    <input type="hidden" name="coordinador_celular"
-                                                        value="{{ Auth::user()->phone }}">
-                                                    <input type="hidden" name="asistencia" value="true">
-                                                    <button type="submit"
-                                                        class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
-                                                        onclick="return confirm('Este MJRV ya fue registrado. ¿Está seguro de continuar?')">Registrado</button>
-
-                                                </form>
+                                                <button
+                                                    class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+                                                    onclick="alert('Asegúrate de digitar la cédula correctamente.')">Registrado</button>
                                             @endif
                                         </td>
                                     </tr>
@@ -137,6 +113,8 @@
                             </table>
                         </div>
                     @endempty
+
+                    @include('registration._phonemodal')
 
                 </div>
             </div>
