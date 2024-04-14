@@ -15,19 +15,24 @@
                     </x-nav-link> --}}
                     @if (Auth::user()->role == 1)
                         <x-nav-link :href="route('registration.index')" :active="request()->routeIs('registration.*')">
+                            <i class="fa-solid fa-clipboard-check pr-2"></i>
                             {{ __('Registro') }}
                         </x-nav-link>
                         <x-nav-link :href="route('report.index')" :active="request()->routeIs('report.*')">
+                            <i class="fa-solid fa-file-lines pr-2"></i>
                             {{ __('Reportes') }}
                         </x-nav-link>
                         <x-nav-link :href="route('mjrv.index')" :active="request()->routeIs('mjrv.*')">
+                            <i class="fa-solid fa-address-book pr-2"></i>
                             {{ __('MJRV') }}
                         </x-nav-link>
                         <x-nav-link :href="route('user.index')" :active="request()->routeIs('user.*')">
+                            <i class="fa-solid fa-user pr-2"></i>
                             {{ __('Usuarios') }}
                         </x-nav-link>
                     @elseif (Auth::user()->role == 2)
                         <x-nav-link :href="route('registration.index')" :active="request()->routeIs('registration.*')">
+                            <i class="fa-solid fa-square-check pr-2"></i>
                             {{ __('Registro') }}
                         </x-nav-link>
                     @elseif (Auth::user()->role == 3)
@@ -156,7 +161,6 @@
         <div class="pt-4 pb-1 border-t border-gray-200 dark:border-gray-600">
             <div class="px-4">
                 <div class="font-medium text-base text-gray-800 dark:text-gray-200">{{ Auth::user()->name }}</div>
-                <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
             </div>
 
             <div class="mt-3 space-y-1">

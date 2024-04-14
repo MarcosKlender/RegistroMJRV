@@ -16,6 +16,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.css"  rel="stylesheet" />
 
     <!-- Scripts -->
+    <script src="https://kit.fontawesome.com/29a25d8c3a.js" crossorigin="anonymous"></script>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 
     <!-- Dark Mode Button -->
